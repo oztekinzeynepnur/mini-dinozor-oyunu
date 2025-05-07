@@ -46,10 +46,6 @@ Oyunu oynamak için:
 - HTML5 & CSS3 - Arayüz ve animasyonlar için
 - Web Audio API - Ses efektleri için
 
-## 📝 Lisans
-
-Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
-
 ## 👥 Katkıda Bulunma
 
 1. Bu depoyu fork edin
