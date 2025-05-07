@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Dinozor Oyunu</title>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div x-data="dinoGame()" class="game-container" @keydown.window="handleKeyPress">
+        <div class="game-header">
+            <h1>Mini Dinozor Oyunu</h1>
+            <div class="controls-info">
+                <p>Kontroller: W, SPACE, ↑ tuşu veya ENTER ile zıplayabilirsiniz</p>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <div class="dino" :class="{ 'jump': isJumping }">🦖</div>
+            <div class="cactus" :class="{ 'move': isGameRunning }">🌵</div>
+            <div class="ground"></div>
+        </div>
+
+        <div class="game-info">
+            <div class="score">Skor: <span x-text="score"></span></div>
+            <div class="high-score">En Yüksek Skor: <span x-text="highScore"></span></div>
+            <div class="difficulty">Zorluk: <span x-text="difficulty"></span></div>
+        </div>
+
+        <div class="controls">
+            <button @click="startGame" x-show="!isGameRunning" class="start-btn">Oyunu Başlat</button>
+            <button @click="jump" x-show="isGameRunning" class="jump-btn">Zıpla!</button>
+            <select x-model="selectedDifficulty" x-show="!isGameRunning" class="difficulty-select">
+                <option value="easy">Kolay</option>
+                <option value="medium">Orta</option>
+                <option value="hard">Zor</option>
+            </select>
+        </div>
+
+        <audio id="jumpSound" src="assets/sounds/jump.mp3" preload="auto"></audio>
+        <audio id="gameOverSound" src="assets/sounds/game-over.mp3" preload="auto"></audio>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 
